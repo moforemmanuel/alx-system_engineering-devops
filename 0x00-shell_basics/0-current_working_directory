@@ -1,2 +1,2 @@
-#!/bin/bash \n
-realpath \n
+#!/bin/bash\n
+realpath 0-current_working_directory\n
