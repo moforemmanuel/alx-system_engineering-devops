@@ -1,2 +1,2 @@
-#!/bin/bash\n
-echo $(realpath $0)
+#!/bin/bash
+echo $(dirname $(realpath 0-current_workiing_directory))
