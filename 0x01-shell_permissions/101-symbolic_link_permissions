@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -type s -exec chown betty -- {} + -exec chgrp holberton -- {} +
+find . -type s -exec chown betty _hello -- {} + -exec chgrp holberton _hello -- {} +
