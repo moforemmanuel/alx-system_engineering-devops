@@ -1,2 +1,2 @@
 #!/bin/bash
-find ./ -name '*.odt' -exec cp -nt ../ {} +
+cp -r *.html ..
