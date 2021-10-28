@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#script tht prints a text 10 times using until
+
+count=1
+until [ $count -le 10 ]; do
+      echo "Holerton School"
+      count=$(( count + 1))
+done
