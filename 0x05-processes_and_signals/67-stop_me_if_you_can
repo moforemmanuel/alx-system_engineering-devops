@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#Script that kills the infinite loop without kill or killall which handles SIGTERM
+
+pkill 7-highlander
