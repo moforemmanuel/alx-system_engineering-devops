@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#Script that kills the infinite loop
+
+pkill 4-to_infinity_and_beyond
