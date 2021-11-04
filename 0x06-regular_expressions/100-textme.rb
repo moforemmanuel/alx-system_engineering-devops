@@ -1,4 +1,4 @@
 #!/usr/bin/env ruby
 #textme extract
 
-puts ARGV[0].scan(/[A-Z\s]+/).join
+puts ARGV[0].scan(/(?<=from:|to:|flags:).*?(?=\])/).join(',')
