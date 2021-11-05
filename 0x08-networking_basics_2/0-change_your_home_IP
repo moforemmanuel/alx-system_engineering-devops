@@ -1,4 +1,4 @@
-#!/src/bin/env bash
+#!/usr/bin/env bash
 #script that reassigns hostnames, changes localhost address
 
 cp /etc/hosts ~/hosts.new
