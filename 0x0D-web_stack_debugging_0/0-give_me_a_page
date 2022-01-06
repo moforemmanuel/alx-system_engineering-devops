@@ -5,4 +5,3 @@
 
 sudo apt install curl
 service apache2 start
-curl 0:80
