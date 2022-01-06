@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+#Script that loops forever until interrupted, handling SIGTERM
+
+#handle SIGTERM
+trap "echo I am invincible!!!" SIGTERM
+while true
+do
+    echo "To infinity and beyond"
+    sleep 2
+done

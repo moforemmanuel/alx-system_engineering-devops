@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#show all attached ipv4
+#ifconfig | grep "inet addr" | awk '{print $2}' | cut -d":" -f2
+#--only-matching --experimental perl regex
+#
+#ifconfig | grep -oP "(?<=inet addr:)[d.]*\b"
+
+ifconfig | grep "inet addr" | cut -f2 -d " " | cut -f1 -d ":"
