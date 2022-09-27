@@ -3,6 +3,6 @@
 
 count=0
 until [[ $count -eq 10 ]]; do
-      echo "Holerton School"
+      echo "Best School"
       count=$(( count + 1))
 done
