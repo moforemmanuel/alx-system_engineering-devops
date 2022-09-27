@@ -1,5 +1,19 @@
 # create ssh config file
-exec { 'create_ssh_config':
-	command => 'echo -e "Host *\nIdentityFile ~/.ssh/school\nPasswordAuthentication no" > ~/.ssh/config'
-	path => ['/usr/bin', '/usr/sbin', '/bin']
+file { '/etc/ssh/ssh_config':
+	ensure => file
 }
+
+file_line { 'identitiy_file':
+	ensure => created,
+	path => '/etc/ssh/ssh_config',
+	match => 'IdentityFile',
+	line => 'IdentityFile ~/.ssh/school'
+}
+
+file_line { 'refuse_password':
+	ensure => created,
+	path => '/etc/ssh/ssh_config',
+	match => 'PasswordAuthentication',
+	line => 'PasswordAuthentication no'
+}
+	
