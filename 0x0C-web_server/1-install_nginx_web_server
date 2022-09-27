@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# configure ngin server
+
+sudo systemctl start nginx
+
