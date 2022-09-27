@@ -2,9 +2,9 @@
 # configure ngin server
 
 # sudo systemctl start nginx
-apt-get -y install nginx
-service nginx start
-ufw allow 'Nginx HTTP'
+sudo apt-get -y install nginx
+sudo service nginx start
+sudo ufw allow 'Nginx HTTP'
 echo "Hello World\n" | sudo tee /var/www/html/index.nginx-debian.html
-service nginx restart
+sudo service nginx restart
 
