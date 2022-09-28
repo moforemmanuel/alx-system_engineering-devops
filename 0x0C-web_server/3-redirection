@@ -1,7 +1,22 @@
 #!/usr/bin/env bash
 # permanent redirect
 
+#install
+apt-get install -y nginx
+
+#allow fw
+ufw allow 'Nginx HTTP'
+
+#homepage
+echo "Hello World!" > /var/www/html/inde.html
+
+#chown and chmod site files
+sudo chown -R $USER:$USER /var/www/html
+sudo chmod -R 755 /var/www
+
+#redirect /redirect_me to video in task
 sed -i '37i\rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-available/default
 
+#start nginx
 service nginx start
 
