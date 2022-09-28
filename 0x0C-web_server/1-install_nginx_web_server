@@ -9,11 +9,12 @@
 #sudo echo "Hello World!" > /var/www/html/index.html
 #sudo service nginx restart
 
+sudo apt-get update
 sudo apt-get install -y nginx
-sudo apt-get install ufw
+#sudo apt-get install ufw
 sudo ufw allow 'Nginx HTTP'
-sudo ufw enable
-sudo service nginx start
-echo 'Hello World!' > /var/www/html/index.html
+sudo ufw --force enable
+#sudo service nginx start
+echo "Hello World!" | sudo tee /var/www/html/index.html
 sudo service nginx restart
 
