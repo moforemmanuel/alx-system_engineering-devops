@@ -23,13 +23,13 @@ sudo chmod -R 755 /var/www
 #EOF
 
 #prefer the line below
-#sudo sed -i '/^\tserver_name/a \\n\tlocation /redirect_me {\n\t\trewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;\n\t}\n' /etc/nginx/sites-available/default
+sudo sed -i '/^\tserver_name/a \\n\tlocation /redirect_me {\n\t\trewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;\n\t}\n' /etc/nginx/sites-available/default
 
 #try
 #sed -i '37i\rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-enabled/default
 
 #another try
-sudo sed -i -E '0,/listen \[::]:[0-9]+ .+;/s//& \n rewrite \^\/redirect_me\/\$ https:\/\/www.youtube.com\/watch\?v=QH2-TGUlwu4 permanent\;/' /etc/nginx/sites-enabled/default
+#sudo sed -i -E '0,/listen \[::]:[0-9]+ .+;/s//& \n rewrite \^\/redirect_me\/\$ https:\/\/www.youtube.com\/watch\?v=QH2-TGUlwu4 permanent\;/' /etc/nginx/sites-enabled/default
 
 #restart server
 sudo service nginx restart
