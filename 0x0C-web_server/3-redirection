@@ -9,8 +9,8 @@ sudo ufw --force enable
 echo "Hello World!" | sudo tee /var/www/html/index.html
 
 #permissions
-#sudo chown -R $USER:$USER /var/www/html
-#sudo chmod -R 755 /var/www
+sudo chown -R $USER:$USER /var/www/html
+sudo chmod -R 755 /var/www
 
 #redirect
 #sudo sed -i '52 a\rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-available/default
@@ -23,10 +23,10 @@ echo "Hello World!" | sudo tee /var/www/html/index.html
 #EOF
 
 #prefer the line below
-#sudo sed -i '/^\tserver_name/a \\n\tlocation /redirect_me {\n\t\trewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;\n\t}\n' /etc/nginx/sites-available/default
+sudo sed -i '/^\tserver_name/a \\n\tlocation /redirect_me {\n\t\trewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;\n\t}\n' /etc/nginx/sites-available/default
 
 #try
-sed -i '37i\rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-enabled/default
+#sed -i '37i\rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-enabled/default
 
 
 #restart server
