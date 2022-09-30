@@ -29,7 +29,7 @@ sudo chmod -R 755 /var/www
 #sed -i '37i\rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-enabled/default
 
 #another try
-sudo sed -i -E '0,/listen \[::]:[0-9]+ .+;/s//& \n rewrite \^\/redirect_me\/\$ https:\/\/www.youtube.com\/watch\?v=QH2-TGUlwu4 permanent\;/' /etc/nginx/sites-available/default
+sudo sed -i -E '0,/listen \[::]:[0-9]+ .+;/s//& \n rewrite \^\/redirect_me\/\$ https:\/\/www.youtube.com\/watch\?v=QH2-TGUlwu4 permanent\;/' /etc/nginx/sites-enabled/default
 
 #restart server
 sudo service nginx restart
