@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
+# debug apache server
 
 # sudo docker run -p 8080:80 -d -it holbertonschool/265-0
 # id=$(sudo docker ps -fq image=holbertonschool/265-0:latest)
 
 
 sudo service apache2 start
+
