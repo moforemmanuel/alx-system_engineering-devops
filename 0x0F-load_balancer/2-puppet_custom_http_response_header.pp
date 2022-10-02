@@ -2,7 +2,7 @@
 
 exec {'header':
 	provider => shell,
-	command => 'sudo apt-get -y update ; sudo apt-get -y install nginx ; sudo sed -i '/^\tserver_name/a \\n\tadd_header X-Served-By $HOSTNAME;\n' /etc/nginx/sites-available/default ; sudo service nginx restart',
+	command => "sudo apt-get -y update ; sudo apt-get -y install nginx ; sudo sed -i '/^\tserver_name/a \\n\tadd_header X-Served-By $HOSTNAME;\n' /etc/nginx/sites-available/default ; sudo service nginx restart",
 }
 
 #exec {'header':
