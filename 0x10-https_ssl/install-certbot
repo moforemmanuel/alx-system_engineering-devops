@@ -25,15 +25,11 @@ sudo certbot certonly --standalone
 
 # Concatenate the certificate with the private key: this will be used by haproxy
 # Go on the folder with your letencrypt keys that you just generated
-cd /etc/letsencrypt/live/
 
-# You might want to do be run all these commands as root if you're getting permission denied
-sudo bash # run as root
+sudo cat "/etc/letsencrypt/live/example.com/fullchain.pem" "/etc/letsencrypt/live/example.com/privkey.pem" | sudo tee "/etc/ssl/example.com.pem"
 
-cd <domain-name>
-cat cert.pem privkey.pem > all.pem
+#renew certificate
 
-# Use this all.pem file in your haproxy configuration. Refer to 1-haproxy_ssl_termination file.
 
 # Add the following line on frontend to redirect http to https if needed
 http-request redirect scheme https unless { ssl_fc }
@@ -41,5 +37,6 @@ http-request redirect scheme https unless { ssl_fc }
 # Restart haproxy, and you're good to go!
 sudo service haproxy start # or restart
 
-#####ignore all these, check https://markontech.com/linux/install-lets-encrypt-ssl-on-haproxy/
+#####ignore all these, check https://markontech.com/linux/install-lets-encrypt-ssl-on-haproxy/ and https://certbot.eff.org/instructions?ws=haproxy&os=ubuntufocal or see 1-haproxy_ssl_termination file
 
+#also, add as pre_hook stop haproxy, and as post_hook, concat fullchain and privkey, then start haproxy, append this to letsencrypt renewal dir
