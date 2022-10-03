@@ -4,15 +4,28 @@
 function audit() {
 	domain=$1
 	subdomain=$2
-	query=$(dig $2.$1 | grep -A1 'ANSWER SECTION:')
+	#query=$(dig $2.$1 | grep -A1 'ANSWER SECTION:')
 	#echo $query
 	#echo $query | awk '{split($0, result, " "); print result}'`
-	resultarray=($(awk -F' '  '{$1=$1} 1' <<< "${query}"))
-	record=${resultarray[-2]}
-	ip=${resultarray[-1]}
-	echo "The subdomain $subdomain is a $record record and points to $ip"
+	#resultarray=($(awk -F' '  '{$1=$1} 1' <<< "${query}"))
+	#record=${resultarray[-2]}
+	#ip=${resultarray[-1]}
+	#echo "The subdomain $subdomain is a $record record and points to $ip"
+	dig $subdomain.$domain | grep -A1 'ANSWER SECTION:' | tail -1 | awk -v s="$subdomain" 'BEGIN { FS = " " } ; { print "The subdomain " s " is a " $4 " record and points to " $5 }'
 	return 0
 }
 
-audit $1 $2
+sublist=( "www" "lb-01" "web-01" "web-02"  )
+url=$1
+if [ $# -eq 1 ]; then
+	for sub in "${sublist[@]}"
+	do
+	#	echo $sub
+		audit "$url" "$sub"
+	done
+elif [ $# -eq 2 ]; then
+	url="$1"
+	sub="$2"
+	audit "$url" "$sub"
+fi
 
