@@ -1,13 +1,6 @@
 #!/usr/bin/env bash
 # forward ufw port 8080 to 80
 
-#sudo sed '1i *nat\n:PREROUTING ACCEPT [0:0]\n-A PREROUTING -p tcp --dport 8080 -j REDIRECT --to-port 80\n' /etc/ufw/before.rules
-#sudo ufw reload
-
-*nat
-:PREROUTING ACCEPT [0:0]
--A PREROUTING -p tcp --dport 8080 -j REDIRECT --to-port 80
-
 #
 # rules.before
 #
@@ -15,8 +8,12 @@
 # rules should be added to one of these chains:
 #   ufw-before-input
 #   ufw-before-output
+
 #   ufw-before-forward
-#
+*nat
+:PREROUTING ACCEPT [0:0]
+-A PREROUTING -p tcp --dport 8080 -j REDIRECT --to-port 80
+
 
 # Don't delete these required lines, otherwise there will be errors
 *filter
@@ -80,6 +77,6 @@
 # allow MULTICAST UPnP for service discovery (be sure the MULTICAST line above
 # is uncommented)
 -A ufw-before-input -p udp -d 239.255.255.250 --dport 1900 -j ACCEPT
-
+
 # don't delete the 'COMMIT' line or these rules won't be processed
 COMMIT
