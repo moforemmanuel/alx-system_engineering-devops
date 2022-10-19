@@ -25,4 +25,4 @@ if __name__ == "__main__":
     print(f'{user_name} is done with tasks \
     ({len(completed_tasks)}/{len(tasks)}):')
     for task in completed_tasks:
-        print(f"\t{task}")
+        print(f"\t {task}")
