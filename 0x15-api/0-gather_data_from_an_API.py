@@ -5,17 +5,23 @@
 import requests
 from sys import argv
 
-if __name__ == '__main__':
-    endpoint = "https://jsonplaceholder.typicode.com"
+if __name__ == "__main__":
     userId = argv[1]
-    user = requests.get(endpoint + "users/{}".
-                        format(userId), verify=False).json()
-    todo = requests.get(endpoint + "todos?userId={}".
-                        format(userId), verify=False).json()
-    completed_tasks = []
-    for task in todo:
+    completed_tasks: list = []
+    user_name = requests\
+        .get(f'https://jsonplaceholder.typicode.com/users/{userId}')\
+        .json().get('name')
+    tasks = requests.\
+        get(f'https://jsonplaceholder.typicode.com/todos?userId={userId}')\
+        .json()
+    # pprint(type(tasks))
+    # pprint(user_name)
+
+    for task in tasks:
         if task.get('completed') is True:
             completed_tasks.append(task.get('title'))
-    print("Employee {} is done with tasks({}/{}):".
-          format(user.get('name'), len(completed_tasks), len(todo)))
-    print("\n".join("\t {}".format(task) for task in completed_tasks))
+
+    print(f'{user_name} is done with tasks \
+    ({len(completed_tasks)}/{len(tasks)}):')
+    for task in completed_tasks:
+        print(f"\t {task}")
