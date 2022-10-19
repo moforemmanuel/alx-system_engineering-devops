@@ -2,8 +2,8 @@
 """getting data from an api
 """
 
-import requests
 import sys
+import requests
 
 if __name__ == '__main__':
     endpoint = "https://jsonplaceholder.typicode.com"
