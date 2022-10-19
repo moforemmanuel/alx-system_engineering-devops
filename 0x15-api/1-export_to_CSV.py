@@ -13,13 +13,7 @@ if __name__ == '__main__':
                         format(userId)).json()
     todo = requests.get(endpoint + "todos?userId={}".
                         format(userId)).json()
-    # completed_tasks = []
-    # for task in todo:
-    #     if task.get('completed') is True:
-    #         completed_tasks.append(task.get('title'))
-    # print("Employee {} is done with tasks({}/{}):".
-    #       format(user.get('name'), len(completed_tasks), len(todo)))
-    # print("\n".join("\t {}".format(task) for task in completed_tasks))
+    
     with open(f"{userId}.csv", "w") as csv_file:
         # create the csv writer
         writer = csv.writer(csv_file)
