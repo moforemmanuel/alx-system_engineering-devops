@@ -13,12 +13,9 @@ if __name__ == '__main__':
                         format(userId)).json()
     todo = requests.get(endpoint + "todos?userId={}".
                         format(userId)).json()
-    
-    with open(f"{userId}.csv", "w") as csv_file:
-        # create the csv writer
-        writer = csv.writer(csv_file)
 
-        # write a row to the csv file
+    with open(f"{userId}.csv", "w") as csv_file:
+        writer = csv.writer(csv_file)
         for task in todo:
             writer.writerow([userId, user.get('username'), task.get('completed'),
                             task.get('title')])
