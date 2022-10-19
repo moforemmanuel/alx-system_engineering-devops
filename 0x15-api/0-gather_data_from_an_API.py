@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""Gather data from an API"""
+"""Gather data from an API
+"""
 
 # from pprint import pprint
 import requests
