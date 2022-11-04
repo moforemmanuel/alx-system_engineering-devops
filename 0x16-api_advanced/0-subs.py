@@ -2,7 +2,6 @@
 """return the number of subscribers of a reddit sub"""
 
 import requests
-import sys
 
 
 def number_of_subscribers(subreddit):
