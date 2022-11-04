@@ -1,11 +1,11 @@
 #!/usr/bin/python3
 """return the number of subscribers of a reddit sub"""
 
-import requests
-
 
 def number_of_subscribers(subreddit):
     """function"""
+    import requests
+
     data = requests.get(
         f"https://www.reddit.com/r/{subreddit}/about.json",
         headers={"User-Agent": "My-User-Agent"},
