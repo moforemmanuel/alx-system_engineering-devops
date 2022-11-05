@@ -11,7 +11,7 @@ def top_ten(subreddit):
                         headers={"User-Agent": "My-User-Agent"},
                         allow_redirects=False)
     if data.status_code >= 300:
-        print(0)
+        print("None")
         return
 
     for post in data.json().get("data").get("children")[:10]:
