@@ -14,7 +14,3 @@ def number_of_subscribers(subreddit):
     if data.status_code >= 300:
         return 0
     return data.json().get("data").get("subscribers")
-
-
-if __name__ == '__main__':
-    print(number_of_subscribers('football'))
