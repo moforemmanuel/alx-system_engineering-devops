@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Get subreddit all posts"""
+"""Get subreddit all posts with count"""
 
 
 def count_words(subreddit, word_list, word_count={}, after=None):
@@ -45,21 +45,3 @@ def count_words(subreddit, word_list, word_count={}, after=None):
     else:
         return count_words(subreddit, word_list, word_count,
                            info.get("data").get("after"))
-
-    if data.status_code >= 400:
-        return None
-
-    hot_posts = hot_list + [
-        post.get('data').get('title')
-        for post in data.json().get("data").get("children")
-    ]
-
-    if not data.json().get('data').get('after'):
-        return hot_posts
-
-    return recurse(
-        subreddit,
-        hot_posts,
-        data.json().get('data').get('count'),
-        data.json().get('data').get('after')
-    )
