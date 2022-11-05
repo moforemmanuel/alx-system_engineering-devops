@@ -6,11 +6,13 @@ def recurse(subreddit, hot_list=[], count=0, after=None):
     """Queries subreddit api"""
     import requests
 
-    data = requests.get("https://www.reddit.com/r/{}/hot.json"
-                        .format(subreddit),
-                        params={"count": count, "after": after}
-                        headers={"User-Agent": "My-User-Agent"},
-                        allow_redirects=False)
+    data = requests.get(
+        "https://www.reddit.com/r/{}/hot.json"
+        .format(subreddit),
+        params={"count": count, "after": after},
+        headers={"User-Agent": "My-User-Agent"},
+        allow_redirects=False
+    )
 
     if data.status_code >= 400:
         return None
@@ -29,7 +31,3 @@ def recurse(subreddit, hot_list=[], count=0, after=None):
         data.json().get('data').get('count'),
         data.json().get('data').get('after')
     )
-
-
-if __name__ == '__main__':
-    recurse('asdasdasdsad')
