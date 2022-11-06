@@ -20,7 +20,11 @@ From 9:30 AM to 4:15 PM GMT +1, every attempt to login into the 804-web-01 serve
 
 At 9:20 AM GMT +1, an Nginx server was installed, which would be used to host website files and assets.
 With the installation complete, on configuring the server, I forgot to allow port 22 for ssh access on th server's firewall, then logout out.
-On accessing the server later for use, the firewall kept blocking me out (refusing my connection). This rendered the server useless to me, as I couldn't log into it, however, site visitors could access the files hosted as port 80 and 8080 were allowed, however, they would be browsing stale data.
+On accessing the server later for use, the firewall kept blocking me out (refusing my connection).
+
+Imagine your car door locks automatically by default when you leave the car. Now you leave the car, but left your keys inside. There's only two ways you can get back into the car, with a spare key (which you don't have), or you break into your own car, LOL.
+
+This rendered the server useless to me, as I couldn't log into it, however, site visitors could access the files hosted as port 80 and 8080 were allowed, however, they would be browsing stale data.
 After several attempts of trying to log into the system, changing internet connection, and restarting host computer, I then realized there was a problem, and with that, the server outage began at 9:30 AM GMT +1.
 
 ## Resolution and recovery
